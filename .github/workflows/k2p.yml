@@ -4,7 +4,7 @@
 #
 #
 #修改TNAME: K2P 中的K2P为你需要编译的型号，注意名称要与configs/templates/目录下的名字相同
-name: Build Padavan K2P_nano
+name: Build Padavan K2P
 
 on:
   repository_dispatch:
@@ -43,7 +43,7 @@ jobs:
         mkdir -p /opt/images/
     - name: Build Firmware
       env:
-        TNAME: K2P
+        TNAME: K2P_nano
       run: |
         cd /opt/rt-n56u/trunk/user/smartdns
         wget $(curl -s https://api.github.com/repos/pymumu/smartdns/releases/latest|egrep -o 'http.+.tarball.+[0-9]') -O smartdns.tar.gz && mkdir smartdns-ba282c8 && tar -xzvf smartdns.tar.gz -C smartdns-ba282c8 --strip-components 1
